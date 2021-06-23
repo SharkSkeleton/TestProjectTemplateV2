@@ -1,0 +1,14 @@
+<div *ngIf="flag">
+  <label>{{label}}</label><input [(ngModel)]="input" placeholder="{{placeholder}}"/>
+</div>
+
+<div *ngIf="!flag">
+  <form ngForm>
+    <label>{{label}}</label>
+    <select name="state" ngModel>
+      <option *ngFor="let option of options" value="">
+        {{option}}
+      </option>
+    </select>
+  </form>
+</div>

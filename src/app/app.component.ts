@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'TestProjectTemplateV2';
+  table_flag = false;
+
+  change_flag() {
+    this.table_flag = !this.table_flag;
+  }
+
 }

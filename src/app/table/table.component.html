@@ -1,0 +1,7 @@
+<div class="my_table">
+  <div class="my_line" *ngFor='let counter_i of counter(max_line); let i = index'>
+    <div class="my_column" *ngFor='let counter_j of counter(max_column); let j = index'>
+      <app-custom *ngIf="check_exist(i, j)" [childMessage]="child_data"></app-custom>
+    </div>
+  <div>
+</div>

@@ -1,0 +1,24 @@
+.my_table {
+  display: table;
+  text-align: center;
+  margin: auto;
+  border-style: solid;
+  border-spacing:5px;
+  width: 100%;
+}
+.my_line {
+  display: table-row;
+  border-style: solid;
+}
+
+.my_column {
+  display: table-cell;
+  border-style: solid;
+}
+
+@media only screen and (max-width: 768px) {
+  .my_table,
+  .my_column {
+    display: block
+  }
+}
