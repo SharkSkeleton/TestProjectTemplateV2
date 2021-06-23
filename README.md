@@ -25,3 +25,9 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Short description:
+
+We have 2 part: Input and Table in corresponding components 
+In table we can find custom component which is about what TYPE you entered
+Also, I`ve done additional task about responsive table
