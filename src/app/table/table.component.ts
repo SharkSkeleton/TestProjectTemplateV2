@@ -24,10 +24,12 @@ export class TableComponent implements OnInit {
     options: [],
     flag: true
   };
+  error_label = '';
 
   constructor() {}
 
   ngOnInit(): void {
+    this.check_initial_data();
     let my_data = this.initial_data;
     let my_data_with_new_line = my_data.split("\n");
     let my_data_each_word = this.dividing_words(my_data_with_new_line);
@@ -103,6 +105,7 @@ export class TableComponent implements OnInit {
       if ((this.table[i].LINE - 1) == index_1 && (this.table[i].COLUMN - 1) == index_2) {
         if (this.table[i].TYPE == 'TEXT_INPUT') this.child_data.flag = true;
         else if (this.table[i].TYPE == 'SELECT') this.child_data.flag = false;
+        else this.error_label = 'WRONG DATA TYPE (CHOOSE TEXT_INPUT OR SELECT)';
         this.child_data.label = this.table[i].LABEL;
         if (!this.table[i].VALUE.includes(',')) this.child_data.placeholder = this.table[i].VALUE;
         else { // @ts-ignore
@@ -112,5 +115,11 @@ export class TableComponent implements OnInit {
       }
     }
     return false;
+  }
+
+  check_initial_data() {
+    if (this.initial_data == null || this.initial_data == '') {
+      this.error_label = 'NO DATA! PLEASE TRY AGAIN!'
+    }
   }
 }
