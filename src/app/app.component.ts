@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {MessageService} from "./message.service";
 
 @Component({
   selector: 'app-root',
@@ -8,8 +9,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'TestProjectTemplateV2';
   table_flag = false;
+  table_input = '';
+
+  constructor(private messageService: MessageService) {}
 
   change_flag() {
+    this.table_input = this.messageService.messages[this.messageService.messages.length - 1];
     this.table_flag = !this.table_flag;
   }
 

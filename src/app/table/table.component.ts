@@ -1,5 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {MessageService} from "../message.service";
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-table',
@@ -8,6 +7,8 @@ import {MessageService} from "../message.service";
 })
 export class TableComponent implements OnInit {
 
+  // @ts-ignore
+  @Input() initial_data;
   table = [{
     LINE: 0,
     COLUMN: 0,
@@ -24,16 +25,15 @@ export class TableComponent implements OnInit {
     flag: true
   };
 
-  constructor(private messageService: MessageService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    let my_data = this.messageService.messages[0];
+    let my_data = this.initial_data;
     let my_data_with_new_line = my_data.split("\n");
     let my_data_each_word = this.dividing_words(my_data_with_new_line);
     this.filing_table(my_data_each_word);
     this.max_line = this.update_max_lines();
     this.max_column = this.update_max_columns();
-    this.table.forEach(e => console.log(`value: ${e.VALUE}`));
   }
 
   counter(i: number) {

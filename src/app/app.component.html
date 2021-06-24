@@ -3,8 +3,11 @@
   <app-input></app-input>
   <br>
   <br>
+  <div>
   <label>Action 2. </label><button (click)="change_flag()">Send Data</button>
+  </div>
   <br>
+  <label>In case you don`t see changes: make sure that you push Action 1, after that, use double click on Action 2</label>
   <br>
-  <app-table *ngIf="table_flag"></app-table>
+  <app-table *ngIf="table_flag" [initial_data]="table_input"></app-table>
 </div>
